@@ -38,6 +38,8 @@
   "files.associations": {
     "funcoes.h": "c",
     "stdlib.h": "c",
-    "locale.h": "c"
+    "locale.h": "c",
+    "menus.h": "c",
+    "stdio.h": "c"
   }
 }

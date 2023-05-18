@@ -1,5 +1,5 @@
-#include "funcoes.h"
-#include "menus.h"
+#include "headers/funcoes.h"
+#include "headers/menus.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -47,7 +47,7 @@ void menuprincipal(Utente** utentes, Medico** medicos, Utente** fila_espera)
             salvar_tudo(medicos, utentes, fila_espera);
            
             getchar();
-            
+            system("cls"); // Limpa a tela
             menuprincipal(utentes, medicos, fila_espera);
             
         break;
@@ -72,10 +72,12 @@ void menuprincipal(Utente** utentes, Medico** medicos, Utente** fila_espera)
                 case 1:
                     retirar_entrada(fila_espera, medicos);
                     salvar_tudo(medicos, utentes, fila_espera);
+                    system("cls"); // Limpa a tela
                     menuprincipal(utentes, medicos, fila_espera);
                 break;
                 
                 case 2:
+                    system("cls"); // Limpa a tela
                     menuprincipal(utentes, medicos, fila_espera);
                 break;
             }
@@ -86,22 +88,26 @@ void menuprincipal(Utente** utentes, Medico** medicos, Utente** fila_espera)
             listar_utentes_fila(fila_espera);
             getchar();
             getchar();
+            system("cls"); // Limpa a tela
             menuprincipal(utentes, medicos, fila_espera);
         break;
 
             
         case 4:
+            system("cls"); // Limpa a tela
             menugerirutentes(utentes, medicos, fila_espera);
         break;
             
             
         case 5:
+            system("cls"); // Limpa a tela
             menugerirmedicos(utentes, medicos, fila_espera);
         break;
             
         case 6:
             utentes_por_medico(medicos, utentes);
             getchar();
+            
             menuprincipal(utentes, medicos, fila_espera);
         break;
             
@@ -149,6 +155,7 @@ void menugerirmedicos(Utente** utentes, Medico** medicos, Utente** fila_espera)
             inserir_medico(medicos, codigomedico, nomemedico);
             salvar_tudo(medicos, utentes, fila_espera);
             getchar();
+            system("cls"); // Limpa a tela
             menugerirmedicos(utentes, medicos, fila_espera);
         break;
             
@@ -196,6 +203,7 @@ void menugerirmedicos(Utente** utentes, Medico** medicos, Utente** fila_espera)
             consultar_medico(medicos, utentes, codigomedico);
             getchar();
             getchar();
+            system("cls"); // Limpa a tela
             menugerirmedicos(utentes, medicos, fila_espera);
         break;
             
@@ -203,6 +211,7 @@ void menugerirmedicos(Utente** utentes, Medico** medicos, Utente** fila_espera)
             listar_medicos(medicos);
             getchar();
             getchar();
+            system("cls"); // Limpa a tela
             menugerirmedicos(utentes, medicos, fila_espera);
         break;
             
@@ -251,10 +260,12 @@ void menugerirmedicos(Utente** utentes, Medico** medicos, Utente** fila_espera)
             listar_medicos_toda_informacao(utentes, medicos);
             getchar();
             getchar();
+            system("cls"); // Limpa a tela
             menugerirmedicos(utentes, medicos, fila_espera);
         break;
         
         case 7:
+            system("cls"); // Limpa a tela
             menuprincipal(utentes, medicos, fila_espera);
         break;
             
@@ -300,6 +311,7 @@ void menugerirutentes(Utente** utentes, Medico** medicos, Utente** fila_espera)
             inserir_utente(utentes, nomeutente, codigo_medico_utente, codigoutente);
             salvar_tudo(medicos, utentes, fila_espera);
             getchar();
+            system("cls"); // Limpa a tela
             menugerirutentes(utentes, medicos, fila_espera);
         break;
             
@@ -340,10 +352,11 @@ void menugerirutentes(Utente** utentes, Medico** medicos, Utente** fila_espera)
             
         case 3:
             
-            printf("Código do utente que pretende conslutar: ");
+            printf("Código do utente que pretende consultar: ");
             scanf("%d", &codigo_utente);
             consultar_utente(medicos, utentes, fila_espera, codigo_utente);
             getchar();
+            system("cls"); // Limpa a tela
             menugerirutentes(utentes, medicos, fila_espera);
         break;
             
@@ -351,6 +364,7 @@ void menugerirutentes(Utente** utentes, Medico** medicos, Utente** fila_espera)
             listar_utentes(utentes);
             getchar();
             getchar();
+            system("cls"); // Limpa a tela
             menugerirutentes(utentes, medicos, fila_espera);
         break;
             
@@ -394,6 +408,7 @@ void menugerirutentes(Utente** utentes, Medico** medicos, Utente** fila_espera)
 
             
         case 6:
+            system("cls"); // Limpa a tela
             menuprincipal(utentes, medicos, fila_espera);
         break;
             

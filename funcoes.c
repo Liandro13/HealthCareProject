@@ -1,5 +1,5 @@
-#include "funcoes.h"
-#include "menus.h"
+#include "headers/funcoes.h"
+#include "headers/menus.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -266,6 +266,8 @@ void remover_medico(Medico** medicos, int codigo)
 
 void listar_utentes(Utente** utentes)
 {
+    system("cls"); // Limpa a tela
+
     if (*utentes == NULL)
     {
         printf("\n\nAinda não há utentes inseridos.\n\n");
@@ -313,7 +315,7 @@ void listar_medicos(Medico** medicos)
 
 void carregar_utentes(Utente** utentes, Medico** medicos)
 {
-    FILE* file = fopen("utentes.txt", "r");
+    FILE* file = fopen("data/utentes.txt", "r");
     
     if (file == NULL)
     {
@@ -337,7 +339,7 @@ void carregar_utentes(Utente** utentes, Medico** medicos)
 
 void carregar_medicos(Medico** medicos)
 {
-    FILE* file = fopen("medicos.txt", "r");
+    FILE* file = fopen("data/medicos.txt", "r");
     
     if (file == NULL)
     {
@@ -357,7 +359,7 @@ void carregar_medicos(Medico** medicos)
 
 void carregar_fila_espera(Utente** fila_espera, Utente** utentes, Medico** medicos)
 {
-    FILE* file = fopen("fila_espera.txt", "r");
+    FILE* file = fopen("data/fila_espera.txt", "r");
 
     if (file == NULL)
     {
@@ -384,7 +386,7 @@ void carregar_tudo(Medico** medicos, Utente** utentes, Utente** fila_espera)
     carregar_utentes(utentes, medicos);
     carregar_fila_espera(fila_espera, utentes, medicos);
 
-    FILE* file = fopen("variaveis.txt", "r");
+    FILE* file = fopen("data/variaveis.txt", "r");
     
     if (file == NULL)
     {
@@ -399,7 +401,7 @@ void carregar_tudo(Medico** medicos, Utente** utentes, Utente** fila_espera)
 
 void salvar_utentes(Utente** ptr_utentes)
 {
-    FILE* file = fopen("utentes.txt", "w");
+    FILE* file = fopen("data/utentes.txt", "w");
     
     if (file == NULL)
     {
@@ -422,7 +424,7 @@ void salvar_utentes(Utente** ptr_utentes)
 
 void salvar_medicos(Medico** medicos)
 {
-    FILE* file = fopen("medicos.txt", "w");
+    FILE* file = fopen("data/medicos.txt", "w");
     
     if (file == NULL)
     {
@@ -443,7 +445,7 @@ void salvar_medicos(Medico** medicos)
 
 void salvar_fila_espera(Utente** fila_espera)
 {
-    FILE* file = fopen("fila_espera.txt", "w");
+    FILE* file = fopen("data/fila_espera.txt", "w");
 
     if (file == NULL)
     {
@@ -470,7 +472,7 @@ void salvar_tudo(Medico** medicos, Utente** utentes, Utente** fila_espera)
     salvar_utentes(utentes);
     salvar_fila_espera(fila_espera);
 
-    FILE* file = fopen("variaveis.txt", "w");
+    FILE* file = fopen("data/variaveis.txt", "w");
     
     if (file == NULL)
     {
@@ -669,9 +671,10 @@ Utente* proximo_utente_atendido(Medico** ptr_medicos, int codigo_medico) //Retor
 }
 
 
-
 void listar_fila_espera_medico(Medico** ptr_medicos, int codigo_medico)
 {
+    system("cls"); // Limpa a tela
+
     // Encontra o médico correspondente ao código do médico informado.
     Medico* medico = NULL;
     Medico* atual = *ptr_medicos;
@@ -702,6 +705,7 @@ void listar_fila_espera_medico(Medico** ptr_medicos, int codigo_medico)
         utente = utente->prox;
     }
 }
+
 
 
 
@@ -761,8 +765,10 @@ Medico* medico_mais_doentes(Medico** ptr_medicos) // Função que retorna o méd
 
 
 
-void listar_utentes_por_medico (Utente** ptr_utentes, Medico** ptr_medicos)
+void listar_utentes_por_medico(Utente** ptr_utentes, Medico** ptr_medicos)
 {
+    system("cls"); // Limpa a tela
+
     printf("Utentes ordenados por médico:\n");
     printf("------------------------------------\n");
 
@@ -784,6 +790,7 @@ void listar_utentes_por_medico (Utente** ptr_utentes, Medico** ptr_medicos)
         medico_atual = medico_atual->prox;
     }
 }
+
 
 
 Medico* procurar_medico(Medico** medicos, int codigo)
@@ -909,9 +916,11 @@ void consultar_medico(Medico** medicos, Utente** utentes, int codigo)
 
 void consultar_medico(Medico** medicos, Utente** utentes, int codigo)
 {
+    system("cls"); // Limpa a tela
+
     Medico* medico = procurar_medico(medicos, codigo);
 
-    // procurar o médico com o código indicado
+    // Procurar o médico com o código indicado
     if (medico == NULL)
     {
         printf("Médico com código %d não encontrado.\n", codigo);
@@ -919,7 +928,7 @@ void consultar_medico(Medico** medicos, Utente** utentes, int codigo)
     }
     
     printf("----------------------------\n");
-    printf("\n\nCódigo: %d\n", medico->codigo);
+    printf("\nCódigo: %d\n", medico->codigo);
     printf("Nome: %s\n", medico->nome);
     
     printf("\nUtentes com este médico:\n");
@@ -945,7 +954,8 @@ void consultar_medico(Medico** medicos, Utente** utentes, int codigo)
         printf("Total: %d utentes\n", contador_utentes);
     }
 
-    printf("\n\nUtentes em fila de espera:\n\n");
+    printf("\nUtentes em fila de espera:\n");
+
     printf("----------------------------\n");
     printf("Código\t->  Nome\n");
     printf("----------------------------\n");
@@ -968,8 +978,10 @@ void consultar_medico(Medico** medicos, Utente** utentes, int codigo)
 
 
 
+
 void consultar_utente(Medico** medicos, Utente** utentes, Utente** fila_espera, int codigo_utente)
 {
+    system("cls"); // Limpa a tela
     // Procurar o utente com o código indicado
     Utente* utente = procurar_utente(utentes, codigo_utente);
 
@@ -1043,6 +1055,7 @@ void listar_utentes_fila(Utente** fila_espera)
         printf("Não há utentes na fila de espera.\n");
         return;
     }
+    system("cls"); // Limpa a tela
     
     Utente* atual = *fila_espera;
     
@@ -1062,49 +1075,58 @@ void listar_utentes_fila(Utente** fila_espera)
 
 void utentes_por_medico(Medico** medicos, Utente** utentes)
 {
-    printf("Lista de médicos e seus utentes:\n");
+    system("cls"); // Limpa a tela
+    printf("Lista de médicos e seus utentes:\n\n");
 
     Medico* medico_atual = *medicos;
-    while (medico_atual != NULL) {
-        printf("----------------------------\n");
-        printf("\n\nCódigo: %d\n", medico_atual->codigo);
-        printf("Nome: %s\n", medico_atual->nome);
-        
-        printf("\nUtentes com este médico:\n");
 
-        printf("----------------------------\n");
-        printf("Código\t->  Nome\n");
-        printf("----------------------------\n");
-        
+    while (medico_atual != NULL) {
+        printf("Médico: %s (Código: %d)\n", medico_atual->nome, medico_atual->codigo);
+        printf("Utentes atribuídos a este médico:\n");
+
         Utente* utente_atual = *utentes;
-        
-        while (utente_atual != NULL)
-        {
-            if (utente_atual->codigo_medico == medico_atual->codigo)
-            {
-                printf("%d\t->  %s\n", utente_atual->codigo, utente_atual->nome);
+        int utentes_encontrados = 0;
+
+        while (utente_atual != NULL) {
+            if (utente_atual->codigo_medico == medico_atual->codigo) {
+                printf("  - %s (Código: %d)\n", utente_atual->nome, utente_atual->codigo);
+                utentes_encontrados++;
             }
             utente_atual = utente_atual->prox;
         }
 
-        printf("\n\nUtentes em fila de espera:\n\n");
-        printf("----------------------------\n");
-        printf("Código\t->  Nome\n");
-        printf("----------------------------\n");
-
-        utente_atual = medico_atual->fila_espera;
-        while (utente_atual != NULL) {
-            printf("%d\t->  %s\n", utente_atual->codigo, utente_atual->nome);
-            utente_atual = utente_atual->prox;
+        if (utentes_encontrados == 0) {
+            printf("  Nenhum utente atribuído.\n");
         }
 
+        printf("Utentes em fila de espera:\n");
+
+        utente_atual = medico_atual->fila_espera;
+        int utentes_em_fila = 0;
+
+        while (utente_atual != NULL) {
+            printf("  - %s (Código: %d)\n", utente_atual->nome, utente_atual->codigo);
+            utente_atual = utente_atual->prox;
+            utentes_em_fila++;
+        }
+
+        if (utentes_em_fila == 0) {
+            printf("  Nenhum utente em fila de espera.\n");
+        } else {
+            printf("  Utentes em espera: %d\n", utentes_em_fila);
+        }
+
+        printf("\n");
         medico_atual = medico_atual->prox;
     }
 }
 
 
+
+
 void listar_doentes_sem_espera(Utente** fila_espera, Utente** utentes)
 {
+    system("cls"); // Limpa a tela
     printf("\n\nLista de utentes não presentes:\n");
     printf("Código\tNome\t\t\tCódigo médico\n");
     printf("--------------------------------------------------\n");
@@ -1195,6 +1217,8 @@ void listar_medicos_toda_informacao(Utente** utentes, Medico** medicos)
 }*/
 
 void listar_medicos_toda_informacao(Utente** utentes, Medico** medicos) {
+
+    
     Medico* medico_atual = *medicos;
     Medico* medico_mais_utentes = NULL;
     Medico* medico_mais_fila_espera = NULL;
@@ -1256,6 +1280,7 @@ void listar_medicos_toda_informacao(Utente** utentes, Medico** medicos) {
 
 void apresentar_medico_com_mais_doentes(Medico** medicos, Utente** fila_utentes)
 {
+    system("cls"); // Limpa a tela
     if (*medicos == NULL) {
         printf("Não há médicos cadastrados.\n");
         return;

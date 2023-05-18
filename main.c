@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <locale.h>
-#include "funcoes.h"
-#include "menus.h"
+#include "headers/funcoes.h"
+#include "headers/menus.h"
 
 
 

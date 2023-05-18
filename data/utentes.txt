@@ -5,3 +5,6 @@
 4,Miguel,3
 5,Nuno,3
 6,Filipe,0
+32,1,4
+33,Pedro,32767
+34,ocas,1
