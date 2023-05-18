@@ -1,0 +1,7 @@
+0,Margarida,3
+1,Clarinha,3
+2,Ru,3
+3,Marta,3
+4,Miguel,3
+5,Nuno,3
+6,Filipe,0
