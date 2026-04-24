@@ -1,65 +1,65 @@
 <h1 align="center">🏥 HealthCareProject</h1>
 <p align="center">
-  Sistema de gestão de clínica médica desenvolvido em C
+  Console-based medical clinic management system built in C
 </p>
 <p align="center">
-  <img src="https://img.shields.io/badge/linguagem-C-00599C?style=for-the-badge&logo=c&logoColor=white"/>
-  <img src="https://img.shields.io/badge/plataforma-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white"/>
-  <img src="https://img.shields.io/badge/estado-Concluído-brightgreen?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Language-C-00599C?style=for-the-badge&logo=c&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Platform-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge"/>
 </p>
 
 ---
 
-## 📋 Sobre o Projeto
+## 📋 About
 
-O **HealthCareProject** é uma aplicação de consola que simula o sistema de gestão de uma clínica médica. Permite gerir médicos e utentes, com uma fila de espera por médico, tudo persistido em ficheiros de dados.
+**HealthCareProject** is a console application that simulates a medical clinic management system. It handles doctors and patients with per-doctor waiting queues, and persists all data to files automatically.
 
-## ✨ Funcionalidades
+## ✨ Features
 
-- **Gestão de Médicos** — registar, listar e remover médicos
-- **Gestão de Utentes** — registar, listar e remover utentes (pacientes)
-- **Fila de Espera** — adicionar/remover utentes da fila de um médico e chamar o próximo
-- **Relatórios** — visualizar o médico com mais doentes
-- **Persistência de Dados** — todos os dados são guardados automaticamente em ficheiros
+- **Doctor Management** — register, list, and remove doctors
+- **Patient Management** — register, list, and remove patients
+- **Waiting Queue** — add/remove patients from a doctor's queue and call the next one
+- **Reports** — view the doctor with the most patients
+- **Data Persistence** — all data is saved automatically to files after every change
 
-## 🛠️ Tecnologias
+## 🛠️ Tech Stack
 
-| Tecnologia | Descrição |
+| Technology | Description |
 |---|---|
-| C | Linguagem principal |
-| Listas Ligadas | Estrutura de dados para médicos e utentes |
-| Ficheiros (I/O) | Persistência de dados |
-| Visual Studio Code | IDE de desenvolvimento |
+| C | Main language |
+| Linked Lists | Data structure for doctors and patients |
+| File I/O | Data persistence |
+| Visual Studio Code | Development IDE |
 
-## 📂 Estrutura do Projeto
+## 📂 Project Structure
 
 ```
 HealthCareProject/
-├── main.c              # Ponto de entrada e carregamento de dados
-├── funcoes.c           # Lógica de negócio (CRUD, filas, persistência)
-├── menus.c             # Interface de menus ASCII
+├── main.c              # Entry point and data loading
+├── funcoes.c           # Business logic (CRUD, queues, persistence)
+├── menus.c             # ASCII menu interface
 ├── headers/
 │   ├── funcoes.h
 │   └── menus.h
-└── data/               # Ficheiros de dados persistidos
+└── data/               # Persisted data files
 ```
 
-## 🚀 Como Executar
+## 🚀 Getting Started
 
-**Pré-requisitos:** GCC ou Visual Studio Code com extensão C/C++
+**Prerequisites:** GCC or Visual Studio Code with C/C++ extension
 
 ```bash
-# Compilar
+# Compile
 gcc main.c funcoes.c menus.c -o healthcare
 
-# Executar
+# Run
 ./healthcare
 ```
 
-Ou abre o projeto no VS Code e usa o botão **Run**.
+Or open the project in VS Code and use the **Run** button.
 
-## 📌 Notas
+## 📌 Notes
 
-- Interface inteiramente em Português
-- Inserção ordenada por código
-- Dados guardados após cada modificação
+- Interface in Portuguese
+- Sorted insertion by code
+- Data saved after every modification
